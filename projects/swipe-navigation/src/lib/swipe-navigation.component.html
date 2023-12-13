@@ -1,0 +1,19 @@
+<div class="view">
+  <div #main class="page main" style="background-color: rgb(255, 255, 255)">
+    <ng-content select="[mainPage]"></ng-content>
+  </div>
+  <div
+    #chat
+    class="page chat"
+    style="background-color: rgb(58, 58, 58); color: white"
+  >
+    <ng-content select="[chatPage]"></ng-content>
+  </div>
+  <div
+    #camera
+    class="page camera"
+    style="background-color: rgb(58, 58, 58); color: white"
+  >
+    <ng-content select="[cameraPage]"></ng-content>
+  </div>
+</div>
