@@ -36,8 +36,10 @@ export class SwipeNavigationComponent {
     hammer.on('pan', (event: any) => {
       switch (panDirection) {
         case 'panleft':
-          let degreeleft = (315 + (Math.abs(event.deltaX) / 8)) < 360 ? (315 + (Math.abs(event.deltaX) / 8)) : 361;
-          leftComponent.nativeElement.style.transform = leftConstant + `rotate(${degreeleft}deg)`
+          if (Math.abs(event.angle) > 150 && Math.abs(event.angle) < 210) {
+            let degreeleft = (315 + (Math.abs(event.deltaX) / 8)) < 360 ? (315 + (Math.abs(event.deltaX) / 8)) : 361;
+            leftComponent.nativeElement.style.transform = leftConstant + `rotate(${degreeleft}deg)`
+          }
           break;
         case 'panright':
           let degreeright = (45 - (Math.abs(event.deltaX) / 8)) > 0 ? (45 - (Math.abs(event.deltaX) / 8)) : -1;
@@ -117,8 +119,10 @@ export class SwipeNavigationComponent {
     hammer.on('pan', (event: any) => {
       switch (panDirection) {
         case 'panleft':
-          let degreeleft = (0 + (Math.abs(event.deltaX) / 8)) < 60 ? (0 + (Math.abs(event.deltaX) / 8)) : 60;
-          component.nativeElement.style.transform = rightConstant + `rotate(${degreeleft}deg)`
+          if (Math.abs(event.angle) > 150 && Math.abs(event.angle) < 210) {
+            let degreeleft = (0 + (Math.abs(event.deltaX) / 8)) < 60 ? (0 + (Math.abs(event.deltaX) / 8)) : 60;
+            component.nativeElement.style.transform = rightConstant + `rotate(${degreeleft}deg)`
+          }
           break;
       }
     });
